@@ -1,0 +1,106 @@
+{
+    "description": "caps_lock + j/i/k/l = arrowkeys",
+    "manipulators": [
+        {
+            "from": { "key_code": "caps_lock" },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "nav_mode",
+                        "value": 1
+                    }
+                }
+            ],
+            "to_after_key_up": [
+                {
+                    "set_variable": {
+                        "name": "nav_mode",
+                        "value": 0
+                    }
+                }
+            ],
+            "to_if_alone": [{ "key_code": "vk_none" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "nav_mode",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": {
+                "key_code": "j",
+                "modifiers": { "optional": ["caps_lock"] }
+            },
+            "to": [{ "key_code": "left_arrow" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "nav_mode",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": {
+                "key_code": "k",
+                "modifiers": { "optional": ["caps_lock"] }
+            },
+            "to": [{ "key_code": "down_arrow" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "nav_mode",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": {
+                "key_code": "i",
+                "modifiers": { "optional": ["caps_lock"] }
+            },
+            "to": [{ "key_code": "up_arrow" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "nav_mode",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": {
+                "key_code": "l",
+                "modifiers": { "optional": ["caps_lock"] }
+            },
+            "to": [{ "key_code": "right_arrow" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "nav_mode",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": {
+                "key_code": "u",
+                "modifiers": { "optional": ["caps_lock"] }
+            },
+            "to": [
+                {
+                    "key_code": "left_arrow",
+                    "modifiers": ["left_command"]
+                }
+            ],
+            "type": "basic"
+        }
+    ]
+}
